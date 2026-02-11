@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StarClub - Live Room</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <div class="logo">StarClub</div>
+        <div class="subtitle">Live Chat & Fun Room</div>
+
+        <nav class="app-nav">
+          <button class="nav-link active" data-screen="home">Home</button>
+          <button class="nav-link" data-screen="live">Live Room</button>
+          <button class="nav-link" data-screen="color-game">Color Game</button>
+          <button class="nav-link" data-screen="profile">Profile</button>
+          <button class="nav-link" data-screen="info">Info</button>
+        </nav>
+      </header>
+
+      <main class="screens">
+        <!-- HOME SCREEN -->
+        <section id="screen-home" class="screen active-screen">
+          <div class="hero-card">
+            <h1>Welcome to StarClub</h1>
+            <p>
+              A simple multi-screen live room app inspired by online game & chat
+              clubs. Switch to the <strong>Live Room</strong> tab to start chatting.
+            </p>
+            <ul>
+              <li>Real-time messages with other users</li>
+              <li>Modern UI ready for Android APK</li>
+              <li>Single page, multiple screens navigation</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- LIVE ROOM SCREEN -->
+        <section id="screen-live" class="screen">
+          <div class="app-main">
+            <section class="left-panel">
+              <div class="card">
+                <h2>Join the Room</h2>
+                <p>Enter your display name and start chatting in real time.</p>
+                <input id="nameInput" type="text" placeholder="Your name" />
+              </div>
+
+              <div class="card info-card">
+                <h3>Live Server Status</h3>
+                <p id="statusText">Checking server...</p>
+              </div>
+            </section>
+
+            <section class="chat-panel">
+              <div id="messages" class="messages"></div>
+              <form id="chatForm" class="chat-form">
+                <input
+                  id="messageInput"
+                  type="text"
+                  placeholder="Type a message..."
+                  autocomplete="off"
+                  required
+                />
+                <button type="submit">Send</button>
+              </form>
+            </section>
+          </div>
+        </section>
+
+        <!-- COLOR PREDICTION GAME SCREEN -->
+        <section id="screen-color-game" class="screen">
+          <div class="cp-wallet-card">
+            <div class="cp-wallet-main">
+              <div class="cp-wallet-amount">
+                <div class="cp-wallet-label">Wallet balance</div>
+                <div class="cp-wallet-value">₹<span id="cpWalletDisplay">0.84</span></div>
+              </div>
+              <div class="cp-wallet-actions">
+                <button class="cp-btn-secondary">Withdraw</button>
+                <button class="cp-btn-primary">Deposit</button>
+              </div>
+            </div>
+            <div class="cp-wallet-note">
+              Hamari customer support kabhi bhi members ko link nahi bhejti — agar
+              aapko koi link mile to ignore karein.
+            </div>
+          </div>
+
+          <div class="cp-top-tabs-card">
+            <div class="cp-game-tabs">
+              <button class="cp-game-tab active" data-market="WIN30">WinGo 30 sec</button>
+              <button class="cp-game-tab" data-market="WIN1">WinGo 1 min</button>
+              <button class="cp-game-tab" data-market="WIN3">WinGo 3 min</button>
+              <button class="cp-game-tab" data-market="WIN5">WinGo 5 min</button>
+            </div>
+          </div>
+
+          <div class="cp-layout">
+            <div class="card cp-info-card">
+              <div class="cp-header-row">
+                <div>
+                  <div class="cp-label">How to play</div>
+                  <div class="cp-mini-text">WinGo 30 sec</div>
+                </div>
+                <div class="cp-timer-block">
+                  <div class="cp-label">Time remaining</div>
+                  <div class="cp-timer-display">
+                    <span id="cpTimeMin">00</span>:<span id="cpTimeSec">00</span>
+                  </div>
+                  <div id="cpRoundSerial" class="cp-round-serial">--</div>
+                </div>
+              </div>
+
+              <div class="cp-round-row">
+                <div>
+                  <div class="cp-label">Round ID</div>
+                  <div id="cpRoundId" class="cp-value">--</div>
+                </div>
+                <div>
+                  <div class="cp-label">Status</div>
+                  <div id="cpStatus" class="cp-value">--</div>
+                </div>
+                <div>
+                  <div class="cp-label">Result</div>
+                  <div id="cpResultDisplay" class="cp-value">--</div>
+                </div>
+              </div>
+
+              <div class="cp-balance-row">
+                <div class="cp-label">Game Balance</div>
+                <div id="cpBalance" class="cp-balance">1000</div>
+              </div>
+
+              <div class="cp-bet-controls">
+                <label for="cpAmount">Bet Amount</label>
+                <input id="cpAmount" type="number" min="10" step="10" value="10" />
+              </div>
+
+              <div class="cp-color-buttons">
+                <button class="cp-color-btn cp-green" data-color="GREEN">Green</button>
+                <button class="cp-color-btn cp-violet" data-color="VIOLET">Violet</button>
+                <button class="cp-color-btn cp-red" data-color="RED">Red</button>
+              </div>
+
+              <div id="cpMessage" class="cp-message"></div>
+
+              <div class="cp-number-grid" id="cpNumberGrid">
+                <div class="cp-number-ball" data-num="0">0</div>
+                <div class="cp-number-ball" data-num="1">1</div>
+                <div class="cp-number-ball" data-num="2">2</div>
+                <div class="cp-number-ball" data-num="3">3</div>
+                <div class="cp-number-ball" data-num="4">4</div>
+                <div class="cp-number-ball" data-num="5">5</div>
+                <div class="cp-number-ball" data-num="6">6</div>
+                <div class="cp-number-ball" data-num="7">7</div>
+                <div class="cp-number-ball" data-num="8">8</div>
+                <div class="cp-number-ball" data-num="9">9</div>
+              </div>
+            </div>
+
+            <div class="card cp-history-card">
+              <h3>Last Results</h3>
+              <div id="cpHistory" class="cp-history-strip"></div>
+              <p class="cp-history-hint">
+                Neeche wale colored balls last rounds ka number + color dikhate
+                hain. Ye sirf demo game hai (real money nahi).
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROFILE SCREEN -->
+        <section id="screen-profile" class="screen">
+          <div class="card profile-card">
+            <h2>Your StarClub Profile</h2>
+            <p>
+              Ye basic demo profile screen hai. Yahan tum nickname, bio, aur
+              favourite games dikhha sakte ho.
+            </p>
+            <label for="profileName">Display Name</label>
+            <input id="profileName" type="text" placeholder="Star Player" />
+
+            <label for="profileBio">Short Bio</label>
+            <textarea
+              id="profileBio"
+              rows="3"
+              placeholder="Mujhe live games aur chat pasand hai..."
+            ></textarea>
+
+            <button id="saveProfileBtn" class="primary-btn">Save Profile (Local)</button>
+            <p class="profile-hint">
+              Abhi ye data sirf browser me local save hoga. Agar chaho to aage
+              chal ke proper backend database bhi add kar sakte hain.
+            </p>
+          </div>
+        </section>
+
+        <!-- INFO / HELP SCREEN -->
+        <section id="screen-info" class="screen">
+          <div class="card info-screen-card">
+            <h2>How StarClub Works</h2>
+            <ol>
+              <li><strong>Home</strong> tab se app ka overview dekho.</li>
+              <li>
+                <strong>Live Room</strong> tab pe jao, naam enter karo, message
+                bhejo – sab clients ko real time me dikhega.
+              </li>
+              <li>
+                <strong>Profile</strong> tab me apna display name &amp; bio local
+                storage me save kar sakte ho.
+              </li>
+            </ol>
+            <p class="info-note">
+              Ye sab single-page app me alag-alag screens hain, jo APK ke
+              andar ek hi WebView me smooth kaam karengi.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <span>© <span id="year"></span> StarClub · Built with Node.js, Express & Socket.IO</span>
+      </footer>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </body>
+  </html>
+
