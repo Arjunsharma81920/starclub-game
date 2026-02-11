@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # StarClub Color Game
 
 Multi-screen real-time web app similar to color prediction / WinGo style games.  
@@ -66,3 +67,6 @@ Open `http://localhost:3000` in browser.
    - Make sure AGP version is compatible (e.g. `com.android.tools.build:gradle:8.12.0`).
    - Use **Build → Build Bundle(s) / APK(s) → Build APK(s)** to generate `app-debug.apk`.
 
+=======
+# starclub-game
+>>>>>>> 4087df0f08c4f40b433c7194747fbf35b9ec9a56
